@@ -28,7 +28,7 @@ goals = st.text_area("🚀 Describe your career goals (short or long term):")
 
 if st.button("Test Gemini Connection"):
     try:
-        model = genai.GenerativeModel("models/gemini-2.5-flash")
+        model = genai.GenerativeModel("models/gemini-2.5-flash-lite")
         response = model.generate_content("Say Hello from Gemini!")
         st.write(response.text)
     except Exception as e:
