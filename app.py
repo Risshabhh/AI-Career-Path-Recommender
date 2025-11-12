@@ -26,6 +26,13 @@ skills = st.text_area("🧠 List your current skills (comma separated):")
 interests = st.text_area("💡 Mention your interests or favorite domains:")
 goals = st.text_area("🚀 Describe your career goals (short or long term):")
 
+if st.button("Test Gemini Connection"):
+    try:
+        model = genai.GenerativeModel("models/gemini-2.5-flash")
+        response = model.generate_content("Say Hello from Gemini!")
+        st.write(response.text)
+    except Exception as e:
+        st.error(f"Gemini API Error: {e}")
 # ---------- GENERATE RECOMMENDATIONS ----------
 if st.button("Generate Career Recommendations"):
     with st.spinner("Generating personalized career roadmap using Gemini 2.5 Flash..."):
